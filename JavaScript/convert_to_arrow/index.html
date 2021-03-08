@@ -1,64 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Arrow Functions</title>
 </head>
+
 <body id="body">
     <h1>My Boring Website</h1>
     <p id="paragraph">
-        This website is boring, with very little CSS. 
-        However, we really just care about the javascript. 
-        For example, if you click <button id="button">this button</button>, the background of this paragraph tag will change to blue.
+        This website is boring, with very little CSS.
+        However, we really just care about the javascript.
+        For example, if you click <button id="button">this button</button>, the background of this paragraph tag will
+        change to blue.
     </p>
-    <p>We also have a <button id="alert">alert</button> button that will grab the text from the input below and show it in a popup.</p>
+    <p>We also have a <button id="alert">alert</button> button that will grab the text from the input below and show it
+        in a popup.</p>
     <div>
         <input type="text" id="popup-input">
     </div>
     <p>
-        We just like random interactivity in the site, including a fun effect if you hover over <span id="hover-this">        <b>this.</b></span>
+        We just like random interactivity in the site, including a fun effect if you hover over <span id="hover-this">
+            <b>this.</b></span>
     </p>
     <p id="blackPara">
-        Another task: This should be another feature. 
-        I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever is in this input: <input id="inputChange" type="text"/>.
+        Another task: This should be another feature.
+        I want to click anywhere in this paragraph tag and I want to be able to change the background color to whatever
+        is in this input: <input id="inputChange" type="text" />.
     </p>
     <script>
+        let button = document.getElementById("button");
+        let hover = document.getElementById("hover-this");
+        let alertBtn = document.getElementById("alert");
+        let popup = document.getElementById("popup-input");
+        let blackPara = document.getElementById("blackPara");
+        let inputChange = document.getElementById("inputChange");
 
-        const button = document.getElementById("button");
-        const hover = document.getElementById("hover-this");
-        const alertBtn = document.getElementById("alert");
-        let popup = document.getElementById("popup-input").value;
-        const blackPara = document.getElementById("blackPara");
-        const inputChange = document.getElementById("inputChange").value;
-    
-        button.addEventListener("click", ()=>{
-            setBackgrounds("paragraph", "blue");
-        });        
-        const setBackgrounds = (id, color) =>{
+        const setBackgrounds = (id, color) => {
             document.getElementById(id).style = "background-color: " + color;
         }
-        hover.addEventListener("mouseover", ()=>{
+        button.onclick = () => {
+            setBackgrounds("paragraph", "blue");
+        }
+        hover.onmouseover = () => {
             setBackgrounds("body", "red");
-        });
-        hover.addEventListener("mouseout", ()=>{
+        }
+        hover.onmouseout = () => {
             setBackgrounds("body", "white");
-        });
-        alertBtn.addEventListener("click", ()=>{
-            alert(popup);
-        });
-        blackPara.addEventListener("click", ()=>{
-            blackPara.style.backgroundColor = inputChange; 
-        });  
-     blackPara.addEventListener("mouseout", ()=>{
-            setBackgrounds("blackPara", "white");
-        });
-     blackPara.addEventListener("mouseover", ()=>{
+        }
+        alertBtn.onclick=()=>{
+            alert(popup.value);     //value needs to be added inline, not with global variable.
+        }
+        blackPara.onmouseover = () => {
             setBackgrounds("blackPara", "black");
-        });
-
+        }
+        blackPara.onclick = () => {
+            setBackgrounds("blackPara", inputChange.value);
+        }
 
     </script>
 </body>
+
 </html>
