@@ -3,7 +3,7 @@ class ninja{
         this.name = name;
         this.health = health;
         this.speed = 3;
-        this.strength = 3;
+        this.strength = 3; //d
     } 
     sayName(){
         console.log("Hi! My name is "+ this.name+"!");
