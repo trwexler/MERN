@@ -36,6 +36,7 @@ class sensei extends ninja{
         //console.log(yo+ "Wisdom: " +this.wisdom);   didn't work... asking question. log below
     }
 }
+//work
 
 //Roshi.showStats();
 // Name: Roshi | Health: 200 | Speed: 10 | Strength: 10 script.js:12:17
