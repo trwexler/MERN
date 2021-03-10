@@ -4,10 +4,10 @@ class ninja{
         this.health = health;
         this.speed = 3;
         this.strength = 3;
-    } //ddd
+    } 
     sayName(){
         console.log("Hi! My name is "+ this.name+"!");
-    }  ///ddd
+    }  
     showStats(){
         console.log("Name: "+this.name, "| Health: "+this.health, "| Speed: "+this.speed, "| Strength: "+this.strength);
     }
