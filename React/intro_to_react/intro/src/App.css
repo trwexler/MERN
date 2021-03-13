@@ -1,0 +1,17 @@
+.App {
+  margin: 5px;
+}
+
+.App>h1 {
+  font-size: 56px;
+  margin: 0px 0px 0px 13px;
+}
+
+.App>h2 {
+  font-size: 35px;
+  margin: 5px 0px 0px 13px;
+}
+
+.pplCard{
+  margin-left: 40%;
+}
