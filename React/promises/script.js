@@ -16,13 +16,14 @@ const fiveHeads = new Promise( (resolve, reject, pending) => {
             headsCount++ && attempts++
             :headsCount = 0 && attempts++
 
-            if(headsCount == 5){
+
+    }            
+    if(attempts < 100){
                 resolve(`It took ${attempts} tries to flip five "heads"`);
             }
-            else if(headsCount>5){
-                reject("This is an error");
+            else{
+                reject("Over 100! Too many tries!");
             }
-    }
 });
 
 fiveHeads.then( res => console.log(res)).catch( err => console.log(err));
