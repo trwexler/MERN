@@ -8,7 +8,7 @@ const Pokemon = (props)=>{
     const handleSubmit = (e)=>{
         e.preventDefault();
         
-        axios.get('https://pokeapi.co/api/v2/pokemon')
+        axios.get('https://pokeapi.co/api/v2/pokemon?limit=807')
             .then(response => setPokemon(response.data.results))
         }
 
@@ -18,7 +18,7 @@ const Pokemon = (props)=>{
                 <button id="button">Fetch Pokemon</button>
     
             </form> 
-            <ul id="displayPoke">
+            <ol id="displayPoke">
 
 {
             pokemon.map((poke, i)=>(
@@ -26,7 +26,7 @@ const Pokemon = (props)=>{
             ))
 }
 
-            </ul>
+            </ol>
         </div>
     )
 }
