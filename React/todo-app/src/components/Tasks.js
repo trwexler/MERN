@@ -51,11 +51,7 @@ const Tasks = (props) =>{
     allTasks.map((task,i)=>(
             <div key={i}>
                 <div className={styleTab(task.completed)}>{task.text}</div>
-                <button onClick={()=>{handleCompleted(task)
-
-                    }
-                }
-                    >Completed</button>
+                <button onClick={()=>{handleCompleted(task)}}>Completed</button>
                 <button onClick={()=>handleRemoveItem(task.text)}>Remove</button>
 
             </div>
