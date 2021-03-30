@@ -1,51 +1,72 @@
-import React, {useEffect, useState} from 'react';
+import React, { useState } from 'react';
+import axios from 'axios';
 
 const Pokemon = (props)=>{
 
     const[pokemon, setPokemon] = useState([]);
 
-    useEffect(()=>{
-        fetch('https://pokeapi.co/api/v2/pokemon')
-            .then(response => response.json())
-            .then(response => setPokemon(response.results))
-    }, []);   
-    //state.isSubmitted ???
-    // useEffect(()=>{
-    //     alert("When will this run?");
-    // }, [state.isSubmitted]);
-
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(pokemon);
-        pokemon.map((poke, i)=> {
-            const displayPoke = document.getElementById("displayPoke");
-            let newPoke = document.createElement("li");
-            newPoke.innerHTML = poke.name;
-            displayPoke.appendChild(newPoke);
-            })
+        
+        axios.get('https://pokeapi.co/api/v2/pokemon')
+            .then(response => setPokemon(response.data.results))
         }
-
-    //     // pokemon.map((poke,i)=> {
-    //     //         return <div key={i}>{poke[i].name}</div>
-    //     //     })
-    // }
-
-
-
-
 
     return(
         <div>
-           
             <form onSubmit={handleSubmit}>
                 <button id="button">Fetch Pokemon</button>
-                <ul id="displayPoke"></ul>
-            </form>
+    
+            </form> 
+            <ul id="displayPoke">
 
-        </div>
-    )
-
+{
+            pokemon.map((poke, i)=>(
+                <li key={i}>{poke.name}</li>
+            ))
 }
 
+            </ul>
+        </div>
+    )
+}
 
 export default Pokemon
+
+
+
+
+// import React, {useEffect, useState} from 'react';
+
+// const Pokemon = (props)=>{
+
+//     const[pokemon, setPokemon] = useState([]);
+
+//     const handleSubmit = (e)=>{
+//         e.preventDefault();
+//         console.log(pokemon);
+//         fetch('https://pokeapi.co/api/v2/pokemon')
+//             .then(response => response.json())
+//             .then(response => setPokemon(response.results))
+//         }
+            
+//     return(
+//         <div>
+//             <form onSubmit={handleSubmit}>
+//                 <button id="button">Fetch Pokemon</button>
+    
+//             </form> 
+//             <ul id="displayPoke">
+// {
+//             pokemon.map((poke, i)=>(
+//                 <li>{poke.name}</li>
+//             ))
+// }
+//             </ul>
+//         </div>
+//     )
+
+// }
+
+
+// export default Pokemon
