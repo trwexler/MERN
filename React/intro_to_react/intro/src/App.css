@@ -6,7 +6,9 @@
   font-size: 56px;
   margin: 0px 0px 0px 13px;
 }
-
+.container{
+  margin-left:45%;
+}
 .App>h2 {
   font-size: 35px;
   margin: 5px 0px 0px 13px;

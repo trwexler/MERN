@@ -6,6 +6,7 @@ const Results = (props) => {
  
 
   return (
+    
     <div className="displayBox">
       {allTabs[tabIndex].content};
     </div>

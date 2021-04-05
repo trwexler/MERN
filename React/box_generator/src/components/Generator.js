@@ -11,7 +11,6 @@ const Generator = (props)=>{
 
     const handleSubmit = ()=>{
         setSquare([...square, color]);
-
     }
     
 

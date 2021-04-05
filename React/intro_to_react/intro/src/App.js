@@ -7,11 +7,11 @@ import PersonCard from './components/PersonCard';
 function App() {
   return (
     <div className="App">
-      <PersonCard  firstName="Jim " lastName="Halpert, " age="88" hairColor=" Brown"/>
-      <PersonCard firstName="Jim " lastName="Halpert, " age=" 88" hairColor=" Brown"/>
-      <PersonCard firstName="Jim " lastName="Halpert, " age="88" hairColor=" Brown"/>
-      <PersonCard firstName="Jim " lastName="Halpert, " age="88" hairColor="Brown"/>
-    </div>
+      <PersonCard  firstName="Jim " lastName="Halpert, " age={32} hair=" Brown"/>
+      <PersonCard firstName="Michael " lastName="Scott, " age={38} hair=" Brown"/>
+      <PersonCard firstName="Dwight " lastName="Schrute, " age={35} hair=" Brown"/>
+      <PersonCard firstName="Kelly " lastName="Kipour, " age={27} hair=" Black"/>
+     </div>
   );
 }
 
