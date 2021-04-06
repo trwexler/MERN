@@ -1,8 +1,8 @@
 const express = require("express");
-const port = 8000;
-
 var faker = require('faker');
 const app = express();
+const port = 8000;
+
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -46,7 +46,8 @@ app.get("/api/users/new", (request, response) => {
 });
 
 app.get("/api/companies/new", (request, response) => {
-    response.json(new Companies())
+    response.json(new Companies());
+    console.log("hello"); //nothing here... how many responses can we fit? Doesn't work inside of res.json either?
   });
 
   app.get("/api/company/new", (request, response) => {
