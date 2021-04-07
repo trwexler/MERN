@@ -18,11 +18,11 @@ class Users {
     }
 }
 
-var zipCode = faker.address.zipCode();
-var streetAddress = faker.address.streetAddress();
-var city = faker.address.city();
-var state = faker.address.state();
-var country = faker.address.country();
+// var zipCode = faker.address.zipCode();
+// var streetAddress = faker.address.streetAddress();
+// var city = faker.address.city();
+// var state = faker.address.state();
+// var country = faker.address.country();
 
 
 class Companies {
@@ -31,11 +31,11 @@ class Companies {
         this.department = faker.commerce.department();
         this.address = {
             // this.zipCode: zipCode,  way to do this without individually declaring variables? Nesting...
-            streetAddress,
-            city,
-            state,
-            zipCode,
-            country
+            streetAddress:faker.address.streetAddress(),
+            city: faker.address.city(),
+            state: faker.address.state(),
+            zipCode: faker.address.zipCode(),
+            country: faker.address.country()
         };
     }
 }
