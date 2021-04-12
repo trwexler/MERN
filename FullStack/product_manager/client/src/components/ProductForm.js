@@ -22,17 +22,25 @@ const ProductForm = (props)=>{
 
     return(
 
-        <form onSubmit ={submitHandler}>
-            <label htmlFor="product">Product</label>
-            <input type="text" onChange = {(e)=>setProduct(e.target.value)}/><br/>
+        <form onSubmit ={submitHandler} className="block">
+            <h1 className="text-2xl">Product Manager</h1>
+            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="product">
+                <label className="text-gray-500 w-20 text-left">Product</label>
+                <input className="border rounded" type="text" onChange = {(e)=>setProduct(e.target.value)}/><br/>
+            </div>
 
-            <label htmlFor="price">Price</label>
-            <input type="text" onChange = {(e)=>setPrice(e.target.value)}/><br/>
+            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="price">
+                <label className="text-gray-500 w-20 text-left">Price</label>
+                <input className="border rounded" type="text" onChange = {(e)=>setPrice(e.target.value)}/><br/>
+            </div>
 
-            <label htmlFor="description">Description</label>
-            <input type="text" onChange = {(e)=>setDescription(e.target.value)}/><br/>
 
-            <input type="submit"/>
+            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="description">
+                <label className="text-gray-500 w-20 text-left">Description</label>
+                <input className="border rounded" type="text" onChange = {(e)=>setDescription(e.target.value)}/><br/>
+            </div>
+            
+            <input className="p-3 border rounded" type="submit"/>
 
 
         </form>
