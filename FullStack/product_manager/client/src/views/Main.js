@@ -16,7 +16,7 @@ const Main = () => {
                 setLoaded(true);
             })
             .catch((err)=> err)
-    }, [])
+    }, [product])
 
     return (
         <div>
@@ -26,4 +26,6 @@ const Main = () => {
     )
 }
 export default Main;
+
+
 

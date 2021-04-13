@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Link} from '@reach/router';
+import axios from 'axios';
 
 const ProductList = (props) =>{
 
-    const {product} = props;
+    const {product, deleteProduct} = props;
+
+
+    const removeProduct = (id)=>{
+        axios.delete('http://localhost:8000/api/product/' + id)
+            .then(response=>{
+                deleteProduct(id);
+            })
+            .catch((err)=>console.log(err));
+    }
+
 
     return(
         <div className="mt-8">
@@ -12,7 +23,9 @@ const ProductList = (props) =>{
             {
                 product.map((item, index)=>{
                     return <div key={index}>
-                        <Link  to={`/product/${item._id}`}><p className="capitalize underline inline-block">{item.name}</p></Link>
+                        <button>Edit</button>
+                        <Link  to={`/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
+                        <button onClick={(e)=>{removeProduct(item._id)}}>x</button>
                         </div>             
                 })
             }
