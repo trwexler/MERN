@@ -5,49 +5,115 @@ import axios from 'axios';
 const ProductForm = (props)=>{
 
 
-    const [product, setProduct] = useState("");
+    const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
 
     const submitHandler = (e)=>{
         e.preventDefault();
 
-        axios.post('http://localhost:8000/api/product', {
-            product, price, description
-        })
-        .then((res)=>console.log(res.data))
-        .catch((err)=>console.log(err))   
+        if(name !== ""){
+            axios.post('http://localhost:8000/api/product', {
+                name, price, description
+            })
+            .then((res)=>console.log(res.data))
+            .catch((err)=>console.log(err))   
+        }
     }
 
 
     return(
 
-        <form onSubmit ={submitHandler} className="block">
-            <h1 className="text-2xl">Product Manager</h1>
-            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="product">
-                <label className="text-gray-500 w-20 text-left">Product</label>
-                <input className="border rounded" type="text" onChange = {(e)=>setProduct(e.target.value)}/><br/>
+        <form onSubmit={submitHandler} className="block">
+            <h1 className="text-3xl">Product Manager</h1>
+
+            <div className="
+            bg-gray-50 
+            rounded 
+            flex 
+            justify-between 
+            border-2 
+            px-3
+            py-4 
+            m-auto 
+            my-4 
+            w-80">
+                <label className="
+                text-gray-500 
+                w-20 
+                text-left">
+                Name
+                </label>
+                <input className="
+                border 
+                rounded 
+                w-3/5" 
+                type="text" 
+                onChange = {(e)=>setName(e.target.value)}/>
+                <br/>
             </div>
 
-            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="price">
-                <label className="text-gray-500 w-20 text-left">Price</label>
-                <input className="border rounded" type="text" onChange = {(e)=>setPrice(e.target.value)}/><br/>
+            <div className="
+            bg-gray-50 
+            rounded 
+            flex 
+            justify-between 
+            border-2 
+            px-3
+            py-4 
+            m-auto 
+            my-4 
+            w-80">
+                <label className="
+                text-gray-500 
+                w-20 
+                text-left">
+                Price
+                </label>
+                <input className="
+                border 
+                rounded 
+                w-3/5" 
+                type="text" 
+                onChange = {(e)=>setPrice(e.target.value)}/>
+                <br/>
             </div>
 
 
-            <div className="bg-gray-50 rounded flex justify-between border-2 p-2 m-auto my-4 w-3/12" htmlFor="description">
-                <label className="text-gray-500 w-20 text-left">Description</label>
-                <input className="border rounded" type="text" onChange = {(e)=>setDescription(e.target.value)}/><br/>
+            <div className="
+            bg-gray-50 
+            rounded 
+            flex 
+            justify-between 
+            border-2 
+            px-3
+            py-4 
+            m-auto 
+            my-4 
+            w-80">
+                <label className="
+                text-gray-500 
+                w-20 
+                text-left">
+                Description
+                </label>
+                <input className="
+                border 
+                rounded 
+                w-3/5" 
+                type="text" 
+                onChange = {(e)=>setDescription(e.target.value)}/>
+                <br/>
             </div>
             
-            <input className="p-3 border rounded" type="submit"/>
+            <input link="/api/product" className="p-3 border rounded text-gray-600" type="submit"/>
+
+
 
 
         </form>
-
-
-    )
-}
+        
+    )}
 
 export default ProductForm;
 
