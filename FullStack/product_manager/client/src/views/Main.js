@@ -5,7 +5,7 @@ import ProductList from '../components/ProductList';
 
 const Main = () => {
 
-    const [product, setProduct] = useState("");
+    const [product, setProduct] = useState([]);
     const [loaded, setLoaded] = useState(false);
     
 
@@ -18,14 +18,24 @@ const Main = () => {
             .catch((err)=> err)
     }, [product])
 
+    const deleteProduct = id => {
+        setProduct(product.filter(item => item._id != id));
+    }
+
+
+
+
+
     return (
         <div>
            <ProductForm/>
-           { loaded && <ProductList product={product}/>}
+           { loaded && <ProductList product={product} deleteProduct={deleteProduct}/>}
         </div>
     )
 }
 export default Main;
+
+
 
 
 
