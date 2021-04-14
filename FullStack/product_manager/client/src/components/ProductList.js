@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {Link} from '@reach/router';
 import axios from 'axios';
 
@@ -18,15 +18,18 @@ const ProductList = (props) =>{
 
     return(
         <div className="mt-8">
-            <hr/>
+           
             <h1 className="text-2xl pt-5">All Products:</h1>
             {
                 product.map((item, index)=>{
-                    return <div key={index}>
+                    return (
+                        <div key={index}>
                         <button>Edit</button>
-                        <Link  to={`/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
+                        <Link  to={`/api/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
                         <button onClick={(e)=>{removeProduct(item._id)}}>x</button>
-                        </div>             
+                        </div> 
+                        )
+
                 })
             }
         </div>

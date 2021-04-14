@@ -8,8 +8,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="/product"/>
-        <ProductPage path="/product/:_id"/>
+        <Main path="/api/product"/>
+        <ProductPage path="/api/product/:_id"/>
       </Router>
     </div>
   );

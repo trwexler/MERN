@@ -29,7 +29,7 @@ module.exports = {
     viewAllProducts: (request, response) =>{
         Product.find({})
         .then((allProducts)=>{
-            console.log(allProducts);
+            console.log("problem all products");
             response.json(allProducts);
         })
         .catch((err)=>{

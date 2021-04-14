@@ -6,30 +6,28 @@ import ProductList from '../components/ProductList';
 const Main = () => {
 
     const [product, setProduct] = useState([]);
+
     const [loaded, setLoaded] = useState(false);
     
 
+
     useEffect(()=>{
-        axios.get('http://localhost:8000/api')
-            .then((res)=> {
+        axios.get('http://localhost:8000/api/product')
+            .then(res=>{
                 setProduct(res.data);
                 setLoaded(true);
-            })
-            .catch((err)=> err)
-    }, [product])
+            });
+    },[])
 
     const deleteProduct = id => {
-        setProduct(product.filter(item => item._id != id));
+        setProduct(product.filter(item => item._id !== id));
     }
-
-
-
-
 
     return (
         <div>
-           <ProductForm/>
-           { loaded && <ProductList product={product} deleteProduct={deleteProduct}/>}
+           <ProductForm product={product} setProduct={setProduct}/>
+           <hr/>
+           { loaded && <ProductList product={product} deleteProduct={deleteProduct}/> }
         </div>
     )
 }

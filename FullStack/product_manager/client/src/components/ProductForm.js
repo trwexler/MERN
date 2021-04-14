@@ -8,17 +8,22 @@ const ProductForm = (props)=>{
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
+    const {product, setProduct} = props;
 
     const submitHandler = (e)=>{
         e.preventDefault();
-
-        if(name !== ""){
             axios.post('http://localhost:8000/api/product', {
                 name, price, description
             })
-            .then((res)=>console.log(res.data))
+            .then((res)=>{
+                const productConstant = [...product, res.data];
+                setProduct(productConstant);
+                console.log(product);
+            })
+
+
             .catch((err)=>console.log(err))   
-        }
+        
     }
 
 
@@ -106,94 +111,10 @@ const ProductForm = (props)=>{
                 <br/>
             </div>
             
-            <input link="/api/product" className="p-3 border rounded text-gray-600" type="submit"/>
-
-
-
-
+            <input className="p-3 border rounded text-gray-600" type="submit"/>
         </form>
-        
     )}
 
 export default ProductForm;
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// import React, { useState } from 'react'
-// import axios from 'axios';
-// const ProductForm = () => {
-
-//     const [product, setProduct] = useState(""); 
-//     const [price, setPrice] = useState("");
-//     const [description, setDescription] = useState("");
-
-
-//     const onSubmitHandler = e => {
-
-//         e.preventDefault();
-    
-//         axios.post('http://localhost:8000/api/product', {
-//             product,    
-//             price,
-//             description      
-//         })
-//             .then(res=>console.log(res.data))
-//             .catch(err=>console.log(err))
-//     }
-//     //onChange to update firstName and lastName
-//     return (
-//         <form onSubmit={onSubmitHandler}>
-//             <p>
-//                 <label>Product Name</label><br/>
-//                 <input type="text" onChange = {(e)=>setProduct(e.target.value)}/>
-//             </p>
-//             <p>
-//                 <label>Price</label><br/>
-//                 <input type="text" onChange = {(e)=>setPrice(e.target.value)}/>
-//             </p>
-//             <p>
-//                 <label>Description</label><br/>
-//                 <input type="text" onChange = {(e)=>setDescription(e.target.value)}/>
-//             </p>
-//             <input type="submit"/>
-//         </form>
-//     )
-// }
-// export default ProductForm;
 
