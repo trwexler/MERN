@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const ProductPage = (props)=>{
 
-    const[product, setProduct] = useState("");
+    const[product, setProduct] = useState([]);
 
     useEffect(()=>{
         axios.get("http://localhost:8000/api/product/" + props._id)

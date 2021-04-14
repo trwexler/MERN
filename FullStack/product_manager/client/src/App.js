@@ -3,13 +3,19 @@ import Main from './views/Main';
 import ProductPage from './views/ProductPage';
 import './App.css';
 import {Router} from "@reach/router";
+import Update from './views/Update'
+
+
+
+
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Main path="/api/product"/>
-        <ProductPage path="/api/product/:_id"/>
+        <Main path="/"/>
+        <ProductPage path="/product/:_id"/>
+        <Update path="/product/edit/:_id"/>
       </Router>
     </div>
   );

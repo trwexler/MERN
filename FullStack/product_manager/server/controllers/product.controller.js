@@ -9,19 +9,20 @@ module.exports = {
             response.json(newProduct);
         })
         .catch((err)=>{
-            console.log("CRUD command failed", err);
+            console.log("err in createNewProduct", err);
             response.json(err);
         })
     },
 
     removeProduct: (request, response) =>{
+        //! Depreciated... change to findbyidanddeleteone
         Product.remove({_id: request.params})
         .then((deletedProduct)=>{
             console.log(deletedProduct);
             response.json(deletedProduct);
         })
         .catch((err)=>{
-            console.log("CRUD command failed", err);
+            console.log("err in removeProduct", err);
             response.json(err);
         })
     },
@@ -29,11 +30,11 @@ module.exports = {
     viewAllProducts: (request, response) =>{
         Product.find({})
         .then((allProducts)=>{
-            console.log("problem all products");
+            console.log("view all");
             response.json(allProducts);
         })
         .catch((err)=>{
-            console.log("CRUD command failed",err);
+            console.log("err in viewAllProducts",err);
             response.json(err);
         })
     },
@@ -46,11 +47,19 @@ module.exports = {
             response.json(oneProduct);
         })
         .catch((err)=>{
-            console.log("CRUD command failed",err);
+            console.log("err in viewOneProduct",err);
+            response.json(err);
+        })
+    },
+
+    updateOneProduct: (request, response) =>{
+        Product.findByIdAndUpdate(request.params._id, request.body, {new:true,runValidators:true})
+        .then(updateOne=>response.json(updateOne))
+        .catch((err)=>{
+            console.log("err in updateOneProduct",err);
             response.json(err);
         })
     }
-
 
 }
 

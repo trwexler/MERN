@@ -24,9 +24,9 @@ const ProductList = (props) =>{
                 product.map((item, index)=>{
                     return (
                         <div key={index}>
-                        <button>Edit</button>
-                        <Link  to={`/api/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
-                        <button onClick={(e)=>{removeProduct(item._id)}}>x</button>
+                            <Link  to={`/product/edit/${item._id}`}><button>Edit</button></Link>
+                            <Link  to={`/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
+                            <button onClick={(e)=>{removeProduct(item._id)}}>x</button>
                         </div> 
                         )
 

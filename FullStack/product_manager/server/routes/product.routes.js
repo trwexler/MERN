@@ -8,4 +8,6 @@ module.exports = (app) => {
     app.post("/api/product", ProductController.createNewProduct);
 
     app.delete("/api/product/:_id", ProductController.removeProduct);
+
+    app.put("/api/product/:_id", ProductController.updateOneProduct);
 }
