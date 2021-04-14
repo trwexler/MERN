@@ -16,7 +16,7 @@ const ProductList = (props) =>{
     }
 
 
-    return(
+    return (
         <div className="mt-8">
            
             <h1 className="text-2xl pt-5">All Products:</h1>

@@ -1,31 +1,63 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-// import {Link} from '@reach/router';
+import {Link, navigate} from '@reach/router';
 
 
 const Update = (props)=>{
+
+    const {id, product, setProduct, deleteProduct} = props;
+
 
 
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
     const [description, setDescription] = useState("");
-    // const {product, setProduct} = props;
-
     
+    const [dbId, setDbID] = useState("");
+
+    useEffect(()=>{
+        axios.get('http://localhost:8000/api/product/' + id)
+        .then((res)=>{
+            console.log(res.data);
+            setName(res.data.name);
+            setPrice(res.data.price);
+            setDescription(res.data.description);
+            setDbID(res.data._id);
+        })
+    }, [])
+
+
+
+    const removeProduct = (id)=>{
+        axios.delete('http://localhost:8000/api/product/' + id)
+            .then(response=>{
+                deleteProduct(id);
+            })
+            .catch((err)=>console.log(err));
+    }
+
+
 
     const submitHandler = (e)=>{
         e.preventDefault();
-        axios.put('http://localhost:8000/api/product/' + props._id, { 
+        
+        axios.put('http://localhost:8000/api/product/' + id, { 
         name, description, price}
         )
         .then((res)=>{ 
             console.log(res.data);
-        })
+        });
+
+        navigate('http://localhost:3000/');
+
     }
+
+
 
     return(
         <form onSubmit={submitHandler} className="block">
         <h1 className="text-3xl">Edit Product Manager</h1>
+        <button onClick={(e)=>removeProduct(dbId)}>x</button>
 
         <div className="
         bg-gray-50 
@@ -93,6 +125,7 @@ const Update = (props)=>{
         m-auto 
         my-4 
         w-80">
+
             <label className="
             text-gray-500 
             w-20 
