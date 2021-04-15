@@ -11,7 +11,6 @@ const ProductForm = (props)=>{
         const [description, setDescription] = useState("");
 
 
-
     const submitHandler = (e)=>{
         e.preventDefault();
             axios.post('http://localhost:8000/api/product', {

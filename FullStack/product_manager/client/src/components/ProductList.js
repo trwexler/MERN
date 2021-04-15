@@ -5,9 +5,7 @@ import DeleteButton from '../components/DeleteButton';
 const ProductList = (props) =>{
 
     const {product, setProduct} = props;
-    const deleteProduct = id => {
-        setProduct(product.filter(item => item._id !== id));
-    }
+
 
 
     return (
