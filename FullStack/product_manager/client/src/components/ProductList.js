@@ -1,19 +1,24 @@
 import React from 'react';
 import {Link} from '@reach/router';
 import axios from 'axios';
+import DeleteButton from '../components/DeleteButton';
 
 const ProductList = (props) =>{
 
-    const {product, deleteProduct} = props;
+    const {product, setProduct} = props;
 
 
-    const removeProduct = (id)=>{
-        axios.delete('http://localhost:8000/api/product/' + id)
-            .then(response=>{
-                deleteProduct(id);
-            })
-            .catch((err)=>console.log(err));
-    }
+    // const removeProduct = (id)=>{
+    //     axios.delete('http://localhost:8000/api/product/' + id)
+    //         .then(response=>{
+    //             deleteProduct(id);
+    //         })
+    //         .catch((err)=>console.log(err));
+    // }
+
+    // const deleteProduct = id => {
+    //     setProduct(product.filter(item => item._id !== id));
+    // }
 
 
     return (
@@ -24,9 +29,15 @@ const ProductList = (props) =>{
                 product.map((item, index)=>{
                     return (
                         <div key={index}>
-                            <Link  to={`/product/edit/${item._id}`}><button>Edit</button></Link>
-                            <Link  to={`/product/${item._id}`}><p className="capitalize underline inline-block mx-3">{item.name}</p></Link>
-                            <button onClick={(e)=>{removeProduct(item._id)}}>x</button>
+
+                            <Link  to={`/product/edit/${item._id}`}>
+                            <button>Edit</button></Link>
+
+                            <Link  to={`/product/${item._id}`}>
+                            <p className="capitalize underline inline-block mx-3">
+                            {item.name}</p></Link>
+
+                            {/* <DeleteButton id={item._id} deleteProduct={deleteProduct}/> */}
                         </div> 
                         )
 

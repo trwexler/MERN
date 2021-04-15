@@ -6,10 +6,8 @@ import {Link, navigate} from '@reach/router';
 const Update = (props)=>{
 
 
-    const {setProduct,id, name,
-        setName, product,
-        description, setDescription, price,
-        setPrice, deleteProduct} = props;
+    const {id, name, setName, description, 
+        setDescription, price, setPrice} = props;
     
     //Not needed because id is stored as a prop
     //from the app.js < Update path="product/edit/:id />
@@ -31,13 +29,10 @@ const Update = (props)=>{
     const removeProduct = ()=>{
         axios.delete('http://localhost:8000/api/product/' + id)
             .then(response=>{
-                deleteProduct(id);
-
+                console.log(response);
             })
             .catch((err)=>console.log(err));
-            
             navigate('http://localhost:3000/');
-
     }
 
 

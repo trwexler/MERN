@@ -29,7 +29,7 @@ const Main = (props) => {
                 setDescription={setDescription}
                 name={name}
                 setName={setName}
-                deleteProduct={deleteProduct}
+                // deleteProduct={deleteProduct}
            />
            <hr/>
            { loaded && <ProductList 
@@ -41,7 +41,7 @@ const Main = (props) => {
                 setDescription={setDescription}
                 name={name}
                 setName={setName}
-                deleteProduct={deleteProduct}
+                // deleteProduct={deleteProduct}
                 /> }
         </div>
     )}

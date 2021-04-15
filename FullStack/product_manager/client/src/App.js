@@ -30,9 +30,10 @@ function App() {
   },[])
 
 //goes to main->product list, and update
-  const deleteProduct = id => {
-    setProduct(product.filter(item => item._id !== id));
-}
+
+//   const deleteProduct = id => {
+//     setProduct(product.filter(item => item._id !== id));
+// }
 
   return (
     <div className="App">
@@ -46,13 +47,13 @@ function App() {
          setDescription={setDescription}
          name={name}
          setName={setName}
-         deleteProduct={deleteProduct}
+        //  deleteProduct={deleteProduct}
          loaded={loaded}
          />
 
         <ProductPage path="/product/:_id" />
         {loaded && <Update path="/product/edit/:id" 
-        deleteProduct={deleteProduct}
+        // deleteProduct={deleteProduct}
         product={product}
          setProduct={setProduct}
          price={price}
