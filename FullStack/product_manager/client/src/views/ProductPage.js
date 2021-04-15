@@ -37,7 +37,7 @@ const ProductPage = (props)=>{
             
 
 
-            <button onClick={()=>navigate('http://localhost:3000/')}>
+            <button onClick={()=>navigate('/')}>
             Return Home
             </button>
         </div>

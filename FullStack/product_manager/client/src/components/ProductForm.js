@@ -17,8 +17,6 @@ const ProductForm = (props)=>{
             axios.post('http://localhost:8000/api/product', {
                 name, price, description
             })
-            //? Why isn't this working like the way that was listed?
-            //? IS requiring spread:
             .then((res)=>{
                 // * IMPORTANT: CONTINUOUS UPDATE SYNTAX \/ \/ \/
                 const productConstant = [...product, res.data];
