@@ -29,12 +29,6 @@ function App() {
         });
   },[])
 
-//goes to main->product list, and update
-
-//   const deleteProduct = id => {
-//     setProduct(product.filter(item => item._id !== id));
-// }
-
   return (
     <div className="App">
       <Router>
@@ -47,13 +41,11 @@ function App() {
          setDescription={setDescription}
          name={name}
          setName={setName}
-        //  deleteProduct={deleteProduct}
          loaded={loaded}
          />
 
         <ProductPage path="/product/:_id" />
         {loaded && <Update path="/product/edit/:id" 
-        // deleteProduct={deleteProduct}
         product={product}
          setProduct={setProduct}
          price={price}
@@ -62,6 +54,8 @@ function App() {
          setDescription={setDescription}
          name={name}
          setName={setName}
+         loaded={loaded}
+         setLoaded={setLoaded}
         />}
       </Router>
     </div>

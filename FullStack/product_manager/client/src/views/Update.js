@@ -1,17 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import {Link, navigate} from '@reach/router';
-
+import {navigate} from '@reach/router';
+import DeleteButton from '../components/DeleteButton';
 
 const Update = (props)=>{
 
-
     const {id, name, setName, description, 
-        setDescription, price, setPrice} = props;
-    
-    //Not needed because id is stored as a prop
-    //from the app.js < Update path="product/edit/:id />
-    // const [dbId, setDbID] = useState("");
+        setDescription, price, setPrice, product, setProduct} = props;
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/product/' + id)
@@ -20,43 +15,35 @@ const Update = (props)=>{
             setName(res.data.name);
             setPrice(res.data.price);
             setDescription(res.data.description);
-            // setDbID(res.data._id);
         })
     }, [])
 
 
-
-    const removeProduct = ()=>{
-        axios.delete('http://localhost:8000/api/product/' + id)
-            .then(response=>{
-                console.log(response);
-            })
-            .catch((err)=>console.log(err));
-            navigate('http://localhost:3000/');
+    //needed here in the scenario of changing the field without deleting
+    //in which case, the product is stil listed
+    const deleteProduct = id => {
+        setProduct(product.filter(item => item._id !== id));
     }
-
-
 
     const submitHandler = (e)=>{
         e.preventDefault();
         
         axios.put('http://localhost:8000/api/product/' + id, { 
-        name, description, price}
-        )
+        name, description, price
+        })
         .then((res)=>{ 
             console.log(res.data);
         });
-
         navigate('http://localhost:3000/');
-
     }
-
-
 
     return(
         <form onSubmit={submitHandler} className="block">
         <h1 className="text-3xl">Edit Product Manager</h1>
-        <button onClick={(e)=>removeProduct(id)}>x</button>
+        <DeleteButton id={id} success={()=>{
+            navigate('/')
+            deleteProduct(id)
+            }}/>
 
         <div className="
         bg-gray-50 

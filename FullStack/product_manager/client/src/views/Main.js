@@ -7,10 +7,8 @@ const Main = (props) => {
 
     const {product, setProduct,loaded, name,
         setName, description, setDescription, price,
-        setPrice, deleteProduct} = props;
+        setPrice} = props;
     
-
-
     useEffect(()=>{
         axios.get('http://localhost:8000/api/product')
             .then(res=>{
@@ -29,9 +27,8 @@ const Main = (props) => {
                 setDescription={setDescription}
                 name={name}
                 setName={setName}
-                // deleteProduct={deleteProduct}
            />
-           <hr/>
+           <hr className="mt-6"/>
            { loaded && <ProductList 
                 product={product}
                 setProduct={setProduct}
@@ -41,7 +38,6 @@ const Main = (props) => {
                 setDescription={setDescription}
                 name={name}
                 setName={setName}
-                // deleteProduct={deleteProduct}
                 /> }
         </div>
     )}

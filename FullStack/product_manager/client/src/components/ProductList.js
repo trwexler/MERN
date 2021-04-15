@@ -1,24 +1,13 @@
 import React from 'react';
 import {Link} from '@reach/router';
-import axios from 'axios';
 import DeleteButton from '../components/DeleteButton';
 
 const ProductList = (props) =>{
 
     const {product, setProduct} = props;
-
-
-    // const removeProduct = (id)=>{
-    //     axios.delete('http://localhost:8000/api/product/' + id)
-    //         .then(response=>{
-    //             deleteProduct(id);
-    //         })
-    //         .catch((err)=>console.log(err));
-    // }
-
-    // const deleteProduct = id => {
-    //     setProduct(product.filter(item => item._id !== id));
-    // }
+    const deleteProduct = id => {
+        setProduct(product.filter(item => item._id !== id));
+    }
 
 
     return (
@@ -36,11 +25,10 @@ const ProductList = (props) =>{
                             <Link  to={`/product/${item._id}`}>
                             <p className="capitalize underline inline-block mx-3">
                             {item.name}</p></Link>
-
-                            {/* <DeleteButton id={item._id} deleteProduct={deleteProduct}/> */}
+                            
+                            <DeleteButton id={item._id} success={()=>deleteProduct(item._id)}/>
                         </div> 
                         )
-
                 })
             }
         </div>
