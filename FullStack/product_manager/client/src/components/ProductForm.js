@@ -5,10 +5,9 @@ import axios from 'axios';
 const ProductForm = (props)=>{
 
 
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
-    const {product, setProduct} = props;
+    const {product, setProduct, name,
+        setName,description, setDescription, price,
+        setPrice } = props;
 
     const submitHandler = (e)=>{
         e.preventDefault();

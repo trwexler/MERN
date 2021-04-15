@@ -5,13 +5,11 @@ import {Link, navigate} from '@reach/router';
 
 const Update = (props)=>{
 
-    const {id, product, setProduct, deleteProduct} = props;
 
-
-
-    const [name, setName] = useState("");
-    const [price, setPrice] = useState("");
-    const [description, setDescription] = useState("");
+    const {setProduct,id, name,
+        setName, product,
+        description, setDescription, price,
+        setPrice, deleteProduct} = props;
     
     const [dbId, setDbID] = useState("");
 
