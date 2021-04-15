@@ -23,10 +23,11 @@ function App() {
   useEffect(()=>{
     axios.get('http://localhost:8000/api/product')
         .then(res=>{
+          console.log(res);
             setProduct(res.data);
             setLoaded(true);
         });
-},[])
+  },[])
 
 //goes to main->product list, and update
   const deleteProduct = id => {
@@ -34,7 +35,6 @@ function App() {
 }
 
   return (
-
     <div className="App">
       <Router>
         <Main path="/" 

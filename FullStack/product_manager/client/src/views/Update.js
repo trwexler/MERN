@@ -11,7 +11,9 @@ const Update = (props)=>{
         description, setDescription, price,
         setPrice, deleteProduct} = props;
     
-    const [dbId, setDbID] = useState("");
+    //Not needed because id is stored as a prop
+    //from the app.js < Update path="product/edit/:id />
+    // const [dbId, setDbID] = useState("");
 
     useEffect(()=>{
         axios.get('http://localhost:8000/api/product/' + id)
@@ -20,18 +22,22 @@ const Update = (props)=>{
             setName(res.data.name);
             setPrice(res.data.price);
             setDescription(res.data.description);
-            setDbID(res.data._id);
+            // setDbID(res.data._id);
         })
     }, [])
 
 
 
-    const removeProduct = (id)=>{
+    const removeProduct = ()=>{
         axios.delete('http://localhost:8000/api/product/' + id)
             .then(response=>{
                 deleteProduct(id);
+
             })
             .catch((err)=>console.log(err));
+            
+            navigate('http://localhost:3000/');
+
     }
 
 
@@ -55,7 +61,7 @@ const Update = (props)=>{
     return(
         <form onSubmit={submitHandler} className="block">
         <h1 className="text-3xl">Edit Product Manager</h1>
-        <button onClick={(e)=>removeProduct(dbId)}>x</button>
+        <button onClick={(e)=>removeProduct(id)}>x</button>
 
         <div className="
         bg-gray-50 

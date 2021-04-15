@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import ProductForm from '../components/ProductForm';
 import ProductList from '../components/ProductList';
 
 const Main = (props) => {
 
-    const {product, setProduct,loaded, setLoaded, name,
+    const {product, setProduct,loaded, name,
         setName, description, setDescription, price,
         setPrice, deleteProduct} = props;
     
@@ -15,13 +15,8 @@ const Main = (props) => {
         axios.get('http://localhost:8000/api/product')
             .then(res=>{
                 setProduct(res.data);
-
             });
     },[])
-
-    // const deleteProduct = id => {
-    //     setProduct(product.filter(item => item._id !== id));
-    // }
 
     return (
         <div>

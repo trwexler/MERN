@@ -4,10 +4,13 @@ import axios from 'axios';
 
 const ProductForm = (props)=>{
 
+    const {product, setProduct} = props;
 
-    const {product, setProduct, name,
-        setName,description, setDescription, price,
-        setPrice } = props;
+        const [name, setName] = useState("");
+        const [price, setPrice] = useState("");
+        const [description, setDescription] = useState("");
+
+
 
     const submitHandler = (e)=>{
         e.preventDefault();
@@ -22,7 +25,11 @@ const ProductForm = (props)=>{
                 setProduct(productConstant);
                 console.log(product);
             })
-            .catch((err)=>console.log(err))   
+            .catch((err)=>console.log(err));
+            
+            setName("");
+            setDescription("");
+            setPrice("");
         
     }
 
@@ -54,6 +61,7 @@ const ProductForm = (props)=>{
                 rounded 
                 w-3/5" 
                 type="text" 
+                value={name}
                 onChange = {(e)=>setName(e.target.value)}/>
                 <br/>
             </div>
@@ -80,6 +88,7 @@ const ProductForm = (props)=>{
                 rounded 
                 w-3/5" 
                 type="text" 
+                value={price}
                 onChange = {(e)=>setPrice(e.target.value)}/>
                 <br/>
             </div>
@@ -107,6 +116,7 @@ const ProductForm = (props)=>{
                 rounded 
                 w-3/5" 
                 type="text" 
+                value={description}
                 onChange = {(e)=>setDescription(e.target.value)}/>
                 <br/>
             </div>
