@@ -1,10 +1,10 @@
 const express = require('express');
 const app = express();
 const port = 8000;
-
-
+const cors = require('cors');
 app.use(express.json());
-app.use(express.urlencoded({extended:true}))
+app.use(express.urlencoded({extended:true}));
+app.use(cors());
 
 //configs and all that data
 require('./config/mongoose.config');
