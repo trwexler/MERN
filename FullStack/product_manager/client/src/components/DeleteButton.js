@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import axios from 'axios';
 import {navigate} from '@reach/router';
 
@@ -9,12 +9,13 @@ const DeleteButton = (props) => {
     const deleteProduct = id => {
         setProduct(product.filter(item => item._id !== id));
     }
-
+//! Make Delete button's prop (nav or delete prod) 
+//! unique from parent per kevin's advice
     const removeProduct = ()=>{
         axios.delete('http://localhost:8000/api/product/' + id)
             .then(response=>{
                 deleteProduct(id);
-                console.log(response.data);
+                console.log(response.data); 
             })
             .catch((err)=>console.log(err));
             navigate('/');
