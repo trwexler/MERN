@@ -8,7 +8,7 @@ const EditMovie = (props)=>{
 
     return(
         <div>
-            <h2>All Movies</h2>
+            <h2>Edit Movies</h2>
         </div>
     )
 }

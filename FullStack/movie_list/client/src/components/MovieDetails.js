@@ -8,7 +8,7 @@ const MovieDetails = (props)=>{
 
     return(
         <div>
-            <h2>All Movies</h2>
+            <h2>details Movies</h2>
         </div>
     )
 }
