@@ -40,7 +40,7 @@ const Main = (props) => {
 
     return (
         <div>
-        <h1>Products!</h1>
+        <h1 className="text-4xl py-2">Products</h1>
             <Form submitHandler={submitHandler} product={product}
          setProduct={setProduct}
          price={price}
@@ -48,7 +48,9 @@ const Main = (props) => {
          description={description}
          setDescription={setDescription}
          name={name}
-         setName={setName}/>
+         setName={setName}
+         submitText="Add"    
+         />
            <hr className="mt-6"/>
 
         { loaded && <ProductList 

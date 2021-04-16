@@ -6,28 +6,40 @@ const Form = (props)=>{
         setDescription, price, setPrice} = props;
 
     return(
-        <form onSubmit={submitHandler} className="block">
+        <form onSubmit={submitHandler} className="
+        block border w-96 m-auto pb-5 shadow-md">
 
         <div className="
-        bg-gray-50 
         rounded 
         flex 
-        justify-between 
-        border-2 
+        justify-between  
         px-3
         py-4 
         m-auto 
         my-4 
-        w-80">
+        w-96">
             <label className="
+            text-lg
+            mt-2
             text-gray-500 
             w-20 
             text-left">
-            Edit Name:
+            Name
             </label>
             <input className="
+            ml-3
+            transform
+            outline-none
+            duration-300
+            focus:ring-4
+            focus:ring-blue-600
+            focus:ring-opacity-20
+            border-transparent
+            text-center
+            shadow
+            py-2
             border 
-            rounded 
+            rounded-3xl 
             w-3/5" 
             type="text" 
             value={name}
@@ -36,25 +48,37 @@ const Form = (props)=>{
         </div>
 
         <div className="
-        bg-gray-50 
+         
         rounded 
         flex 
         justify-between 
-        border-2 
         px-3
         py-4 
         m-auto 
         my-4 
-        w-80">
+        w-96">
             <label className="
+            text-lg
+            mt-2
             text-gray-500 
             w-20 
             text-left">
-            Edit Price:
+            Price
             </label>
             <input className="
+            ml-3
+            transform
+            outline-none
+            duration-300
+            focus:ring-4
+            focus:ring-blue-600
+            focus:ring-opacity-20
+            border-transparent
+            text-center
+            shadow
+            py-2
             border 
-            rounded 
+            rounded-3xl 
             w-3/5" 
             type="text" 
             value={price}
@@ -64,26 +88,38 @@ const Form = (props)=>{
 
 
         <div className="
-        bg-gray-50 
+         
         rounded 
         flex 
         justify-between 
-        border-2 
+         
         px-3
         py-4 
         m-auto 
         my-4 
-        w-80">
-
+        w-96">
             <label className="
+            text-lg
+            mt-2
             text-gray-500 
             w-20 
             text-left">
-            Edit Description:
+            Description
             </label>
             <input className="
+            ml-3
+            transform
+            outline-none
+            duration-300
+            focus:ring-4
+            focus:ring-blue-600
+            focus:ring-opacity-20
+            border-transparent
+            text-center
+            shadow
+            py-2
             border 
-            rounded 
+            rounded-3xl 
             w-3/5" 
             type="text" 
             value={description}
@@ -91,8 +127,9 @@ const Form = (props)=>{
             <br/>
         </div>
         
-        <input className="p-3 border rounded text-gray-600" type="submit"/>
+        {/* <input className=" transform hover:scale-125 hover:bg-gray-200 duration-300 p-3 cursor-pointer border rounded font-bold text-gray-400 bg-gray-100 shadow " value={props.submitText} type="submit"/> */}
       
+        <input className="transform hover:animate-pulse duration-300 p-3 cursor-pointer border rounded font-bold text-gray-400 bg-gray-100 shadow " value={props.submitText} type="submit"/>
         
         
     </form>

@@ -43,7 +43,7 @@ const Update = (props)=>{
     return(
 
         <div>
-        <h1>Edit</h1>
+            <h1 className="text-4xl py-2">Edit</h1>
             <Form submitHandler={submitHandler} id={id} product={product}
          setProduct={setProduct}
          price={price}
@@ -51,7 +51,10 @@ const Update = (props)=>{
          description={description}
          setDescription={setDescription}
          name={name}
-         setName={setName}/>
+         setName={setName}
+         submitText="Confirm Edit"  
+        
+         />
 
         <DeleteButton id={id} product={product} setProduct={setProduct}/>
 
