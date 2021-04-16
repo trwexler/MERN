@@ -18,11 +18,13 @@ const ProductList = (props) =>{
                         <div key={index}>
 
                             <Link  to={`/product/edit/${item._id}`}>
-                            <button>Edit</button></Link>
+                            <button>Edit</button>
+                            </Link>
 
                             <Link  to={`/product/${item._id}`}>
                             <p className="capitalize underline inline-block mx-3">
-                            {item.name}</p></Link>
+                            {item.name}</p>
+                            </Link>
                             
                             <DeleteButton id={item._id} product={product}
                                 setProduct={setProduct} />
