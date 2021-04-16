@@ -27,7 +27,9 @@ const [allMovies, setAllMovies]= useState([]);
             {
                 allMovies.map((movie, index) =>(
                     <div key={index}>
-                        <h4>{movie.title}</h4>
+                    <Link to = {`/movies/${movie._id}`}>
+                        <h4>{ movie.title }</h4>
+                    </Link>
                     </div>
                 ))
             

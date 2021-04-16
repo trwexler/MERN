@@ -13,7 +13,7 @@ function App() {
     <Router>
       <AllMovies default/>
       <NewMovie path="/movies/new"/>
-      <MovieDetails path="/movies/:id"/>
+      <MovieDetails path="/movies/:movie_id"/>
       <EditMovie path="/movies/:id/edit"/>
     </Router>
     </div>
