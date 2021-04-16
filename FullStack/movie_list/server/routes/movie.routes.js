@@ -6,7 +6,5 @@ module.exports = function(app){
     app.post('/api/movies', MovieController.create);
     app.get('/api/movies/:_id', MovieController.getOne);
     app.delete('/api/movies/:_id', MovieController.delete);
-
-
-    app.put('/api/movies/:id', MovieController.updateOneProduct);
+    app.put('/api/movies/:id', MovieController.update);
 }

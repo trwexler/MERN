@@ -31,7 +31,6 @@ module.exports = {
 
     getOne: (req, res) =>{
         console.log(req.params.id);
-
         Movie.findById(req.params.id)
         .then((oneMovie)=>{
             console.log("in all movies");
@@ -46,7 +45,6 @@ module.exports = {
 
     update: (req, res) =>{
         console.log(req.params.id);
-
         Movie.findByIdAndUpdate(req.params._id, req.body, {
             new:true, //gives the new version... the default return is original
             runValidators:true,  //by default mongoose will not validate updates
