@@ -16,6 +16,17 @@ const MovieDetails = (props) => {
       });
   }, []);
 
+  const deleteMe = () => {
+    axios.delete('http://localhost:8000/api/movies/' + props.movie_id)
+      .then((res) => {
+        console.log(res.data);
+        navigate("/");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   /*
   {
     "_id": "6078c33b0b33c331143f8c03",
@@ -51,10 +62,9 @@ const MovieDetails = (props) => {
       <p>
         Actors: { movie.actors }
       </p>
-      <button onClick={()=> navigate(`/movies/${movie._id}/edit`)}>Edit Movie</button>
-      
-      <Link to="/"> Return to all movies.
-      </Link>
+      <button onClick={ () => navigate(`/movies/${movie._id}/edit`) }>Edit Movie</button>
+      <Link to="/">Return to All Movies</Link>
+      <button onClick={ deleteMe } className="deleteBtn">Delete Movie</button>
     </div>
   )
 }

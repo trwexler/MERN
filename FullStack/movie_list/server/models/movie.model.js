@@ -10,6 +10,7 @@ const MovieSchema = new mongoose.Schema({
   // no duplicates must not have the same title AND release date
   releaseDate: {
     type: Date,
+    required: [ true, "Release Date is required" ],
     min: [ '1930-01-01', "Minimum date for a movie is 1940" ],
     max: [ new Date() , "You cannot enter a release date that happens in the future" ]
   },
