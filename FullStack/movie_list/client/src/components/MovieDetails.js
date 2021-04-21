@@ -51,6 +51,10 @@ const MovieDetails = (props) => {
       <p>
         Actors: { movie.actors }
       </p>
+      <button onClick={()=> navigate(`/movies/${movie._id}/edit`)}>Edit Movie</button>
+      
+      <Link to="/"> Return to all movies.
+      </Link>
     </div>
   )
 }

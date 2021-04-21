@@ -137,6 +137,7 @@ const NewMovie = (props) => {
               />
           </div>
           <button>Add Movie</button>
+          <button onClick={()=>navigate("/")}>Cancel</button>
         </form>
     </div>
   )

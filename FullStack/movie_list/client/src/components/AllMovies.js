@@ -20,6 +20,7 @@ const AllMovies = (props) => {
       <h2>All Movies</h2>
       <button onClick={ (e) => getAllMovies(e) }>Get Movies</button>
       {/* <button onClick={ getAllMovies } */}
+      <Link to="/movies/new"><button>Add Movie</button></Link>
       {
         allMovies.map((movie, index) => (
           <div key={ index }>
