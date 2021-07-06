@@ -17,6 +17,10 @@ const JokeSchema = new mongoose.Schema(
   
   // modelname is used for the collection name inside of the database
   //    The modelname is changed to be lowercase and plural for the collection name
+
+  //can also be "joke" for first param
   const Joke = mongoose.model(modelName, JokeSchema);
 
   module.exports = Joke; 
+
+  // module.exports = mongoose.model('joke', JokeSchema);

@@ -40,6 +40,34 @@ class Companies {
     }
 }
 
+// ES6
+// const createUser = () => { 
+//   return {
+//     firstName: faker.name.firstName(),
+//     lastName: faker.name.lastName(),
+//     phoneNumber: faker.phone.phoneNumber(),
+//     email: faker.internet.email(),
+//     password: faker.internet.password()
+//   }
+// }
+
+
+// const createCompany = () => {
+//   return {
+//     companyName: faker.company.companyName(),
+//     department: faker.commerce.department(),
+//     // using an object to group all of the address data together
+//     //    We can create and group whatever data we want using faker
+//     address: {
+//       streetAddress: faker.address.streetAddress(),
+//       city: faker.address.city(),
+//       state: faker.address.state(),
+//       zip: faker.address.zipCode(),
+//       country: faker.address.country(),
+//     }
+//   }
+// }
+
 
 app.get("/api/users/new", (request, response) => {
   response.json(new Users())

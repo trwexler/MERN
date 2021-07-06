@@ -11,9 +11,6 @@ function App() {
   //Goes everywhere
   const [product, setProduct] = useState([]);
 
-  //Goes to Main.js only
-  const [loaded, setLoaded] = useState(false);
-
   //main->productform, and update.js all three
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
@@ -25,7 +22,6 @@ function App() {
         .then(res=>{
           console.log(res);
             setProduct(res.data);
-            setLoaded(true);
         });
   },[])
 
@@ -41,11 +37,10 @@ function App() {
          setDescription={setDescription}
          name={name}
          setName={setName}
-         loaded={loaded}
          />
 
         <ProductPage path="/product/:_id" />
-        {loaded && <Update path="/product/edit/:id" 
+        <Update path="/product/edit/:id" 
         product={product}
          setProduct={setProduct}
          price={price}
@@ -54,9 +49,7 @@ function App() {
          setDescription={setDescription}
          name={name}
          setName={setName}
-         loaded={loaded}
-         setLoaded={setLoaded}
-        />}
+        />
       </Router>
     </div>
   );

@@ -5,7 +5,7 @@ import ProductList from '../components/ProductList';
 
 const Main = (props) => {
 
-    const {product, setProduct,loaded, name,
+    const {product, setProduct, name,
         setName, description, setDescription, price,
         setPrice} = props;
     
@@ -13,9 +13,10 @@ const Main = (props) => {
         axios.get('http://localhost:8000/api/product')
             .then(res=>{
                 setProduct(res.data);
+                console.log(res.data);
                 setName("");
                 setDescription("");
-                setPrice("");
+                setPrice("");  
             });
     },[])
 
@@ -31,7 +32,7 @@ const Main = (props) => {
                 console.log(product);
                 setName("");
                 setDescription("");
-                setPrice("");
+                setPrice("");  
             })
             .catch((err)=>console.log(err));
 
@@ -53,7 +54,7 @@ const Main = (props) => {
          />
            <hr className="mt-6"/>
 
-        { loaded && <ProductList 
+       <ProductList 
             product={product}
             setProduct={setProduct}
             price={price}
@@ -62,7 +63,7 @@ const Main = (props) => {
             setDescription={setDescription}
             name={name}
             setName={setName}
-            /> }
+            /> 
         </div>
     )}
 

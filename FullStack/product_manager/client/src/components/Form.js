@@ -127,8 +127,6 @@ const Form = (props)=>{
             <br/>
         </div>
         
-        {/* <input className=" transform hover:scale-125 hover:bg-gray-200 duration-300 p-3 cursor-pointer border rounded font-bold text-gray-400 bg-gray-100 shadow " value={props.submitText} type="submit"/> */}
-      
         <input className="transform hover:animate-pulse duration-300 p-3 cursor-pointer border rounded font-bold text-gray-400 bg-gray-100 shadow " value={props.submitText} type="submit"/>
         
         

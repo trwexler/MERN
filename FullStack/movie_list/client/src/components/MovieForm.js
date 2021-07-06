@@ -3,7 +3,6 @@ import axios from 'axios';
 import { navigate, Link } from '@reach/router';
 
 const MovieForm = (props) => {
-  
   const { movie, setMovie, errors, submitHandler, buttonLabel } = props;
 
   const ratings = [

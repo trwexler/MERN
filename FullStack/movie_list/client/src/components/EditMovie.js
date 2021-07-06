@@ -4,9 +4,7 @@ import { navigate, Link } from '@reach/router';
 import MovieForm from './MovieForm';
 
 const EditMovie = (props) => {
-    
   const [ errors, setErrors ] = useState({});
-
   const [ movie, setMovie ] = useState({
     title: "",
     releaseDate: "",
